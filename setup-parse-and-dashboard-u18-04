@@ -12,7 +12,7 @@ tput setaf 2; echo 'Welcome to Parse Server and Dashboard on Ubuntu 18.04 instal
 sleep 2;
 tput sgr0
 cd /root
-tput setaf 2; echo 'Installing Git Node.js and Nginx Server';
+tput setaf 2; echo 'Installing Tools, Node.js and Nginx Server';
 sleep 2;
 tput sgr0
 apt-get update
@@ -35,7 +35,7 @@ tput setaf 2; echo "Setting up SSL"
 sleep 2;
 tput sgr0
 sudo mkdir /etc/nginx/ssl
-sudo openssl req -x509 -nodes -writerand -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
+sudo openssl req -x509 -nodes -writerand .rnd -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
 sudo openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
 cd /etc/nginx/
 sudo mv nginx.conf nginx.conf.backup
@@ -104,8 +104,10 @@ echo "--------------------------------"
 tput sgr0
 echo
 echo
-tput setaf 3;  echo "Installation & configuration succesfully finished."
+tput setaf 3;  echo "Installation & configuration succesfully finished. Happy coding."
 echo
+sleep 2;
+tput setaf 2; echo "Need app or backend development in germany? See https://www.vanedler.de"
 echo "E-mail: mail@romanstark.de"
 echo "Bye!"
 tput sgr0
