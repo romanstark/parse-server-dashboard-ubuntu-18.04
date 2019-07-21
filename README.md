@@ -1,6 +1,5 @@
-# parse-server-dashboard-ubuntu-18.04
-Shell scripts and config files to install Parse Server and Dashboard on Ubuntu 18.04 LTS.
-This work is based on https://github.com/bajpangosh/Install-Parse-Server-on-Ubuntu/tree/master/ubuntu-18.04
+# Automated installation fo Parse-Server and Parse-Dashboard on Ubuntu-18.04 LTS
+Shell scripts and config files to install Parse Server and Dashboard on Ubuntu 18.04 LTS. 
 
 # Howto
 Clone this repository into your home folder and run the shell script:
@@ -9,9 +8,50 @@ You net to setup A-Records for you domain. E.g. *.example.com or the named subdo
 
 ```
 cd /root && sudo git clone https://github.com/romanstark/parse-server-dashboard-ubuntu-18.04.git
-cd parse-server-dashboard-ubuntu-18.04 && sudo bash setup-parse-and-dashboard-u18-04
+cd parse-server-dashboard-ubuntu-18.04 && sudo bash setup-parse-and-dashboard-u18-04 && cd ..
 ```
+
+After successful Installation your Credentials shows (take a copy to notepad and save it.).
+you can login to Parse Dashboard. https://dash.yourdomain.com (username is admin)
+
+## Features
+
+> parse-server
+
+> parse-dashboard
+
+> mongodb-runner
+
+> Nginx
+
+> Node.js
+
+> pm2
+
+## Author
+Roman Stark 
+
+This scripts are based on https://github.com/bajpangosh/Install-Parse-Server-on-Ubuntu/tree/master/ubuntu-18.04 from Bajpan Gosh – bajpan@kloudboy.com. Thank you for the good work.
+
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/romanstark)
+
+## Need App Development?
+Please see https://www.vanedler.de
+
+
+
+## NEED HELP?
+
+Support via Email
+
+email: mail@romanstark.de
+web: https://www.romanstark.de
 
 # What's missing
 * Add option for letsencrypt instead of self signed certificate. 
-* Add option to don't setup parse dashboard as the dashboard may be used on different locations and hosts. 
+* Add option to don't setup parse dashboard as the dashboard may be used on different locations and hosts.
+
+## Thanks
+
+Roman Stark
