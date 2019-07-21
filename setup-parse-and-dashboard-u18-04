@@ -61,8 +61,8 @@ echo
 tput setaf 2; echo 'Downloading Parse Server Dashboard Configuration Files';
 sleep 2;
 
-sudo curl https://raw.githubusercontent.com/bajpangosh/Install-Parse-Server-on-Ubuntu/master/ubuntu-18.04/parse-dashboard-config.json > parse-dashboard-config.json
-sudo curl https://raw.githubusercontent.com/bajpangosh/Install-Parse-Server-on-Ubuntu/master/ubuntu-18.04/dashboard-running.json > dashboard-running.json
+sudo cp /root/parse-server-dashboard-ubuntu-18.04/dashboard-running.json ./
+sudo cp /root/parse-server-dashboard-ubuntu-18.04/parse-dashboard-config.json ./
 npm -g install
 echo
 tput setaf 2; echo 'Adding APP_ID and MASTER_KEY';
@@ -72,7 +72,7 @@ APP_ID=`pwgen -s 24 1`
 sudo sed -i "s/appId: process.env.APP_ID || .*/appId: process.env.APP_ID || '$APP_ID',/" /root/$APP_NAME/index.js
 sudo sed -i -e "s/APP_ID/$APP_ID/" "/root/$APP_NAME/parse-dashboard-config.json"
 sudo sed -i -e "s/APP_NAME/$APP_NAME/" "/root/$APP_NAME/parse-dashboard-config.json"
-sudo sed -i -e "s/app.DOMAIN/$BACK_NAME.$APP_NAME.$DOMAIN/" "/root/$APP_NAME/parse-dashboard-config.json"
+sudo sed -i -e "s/DOMAIN/$BACK_NAME.$APP_NAME.$DOMAIN/" "/root/$APP_NAME/parse-dashboard-config.json"
 sudo sed -i -e "s/APP_NAME/$APP_NAME/" "/root/$APP_NAME/dashboard-running.json"
 sudo sed -i -e "s/localhost:1337/$BACK_NAME.$APP_NAME.$DOMAIN/" "/root/$APP_NAME/index.js"
 sudo sed -i -e "s/http/https/" "/root/$APP_NAME/index.js"
