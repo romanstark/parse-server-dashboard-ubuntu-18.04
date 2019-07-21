@@ -8,16 +8,21 @@ echo "Dashboard name (eg. dashboard will be installed on https://dashboardname.$
 read DASH_NAME
 echo "App backend name (eg. backend will be installed on https://backendname.$APP_NAME.$DOMAIN)?"
 read BACK_NAME
+echo "Your Email-Address for important letsencrypt account notifications"
+read EMAIL
 tput setaf 2; echo 'Welcome to Parse Server and Dashboard on Ubuntu 18.04 install bash script';
 sleep 2;
 tput sgr0
 cd /root
-tput setaf 2; echo 'Installing Tools, Node.js and Nginx Server';
+tput setaf 2; echo 'Installing Certbot, Node.js, Nginx Server';
 sleep 2;
 tput sgr0
-apt-get update
-curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-sudo apt-get install -y git nodejs pwgen nginx openssl
+sudo apt-get update
+sudo curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+sudo apt-get install -y nodejs pwgen nginx software-properties-common
+sudo add-apt-repository -y ppa:certbot/certbot
+sudo apt-get update
+sudo apt install -y python-certbot-nginx
 
 tput setaf 2; echo "Now installing all components....."
 sleep 2;
@@ -34,27 +39,27 @@ sudo ln -s /etc/nginx/sites-available/"$DASH_NAME.$APP_NAME.$DOMAIN" /etc/nginx/
 tput setaf 2; echo "Setting up SSL"
 sleep 2;
 tput sgr0
-sudo mkdir /etc/nginx/ssl
-sudo openssl req -x509 -nodes -writerand /root/.rnd -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
-sudo openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
+sudo curl https://ssl-config.mozilla.org/ffdhe2048.txt > /etc/ssl/ffdhe4096.pem
 cd /etc/nginx/
 sudo mv nginx.conf nginx.conf.backup
 sudo cp /root/parse-server-dashboard-ubuntu-18.04/nginx.conf ./
 sudo systemctl reload nginx
+sudo certbot --nginx --agree-tos -m "$EMAIL" -d "$BACK_NAME.$APP_NAME.$DOMAIN" -d "$DASH_NAME.$APP_NAME.$DOMAIN"
+sudo systemctl reload nginx
 
-tput setaf 2; echo 'installing Mongo DB';
+tput setaf 2; echo 'Installing Mongo DB';
 sleep 2;
 tput sgr0
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
 echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
-apt-get update
-apt-get install -y mongodb-org
-service mongod start
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+sudo service mongod start
 cd /root
 tput setaf 2; echo 'Installing Parse Server Dashboard and PM2';
 sleep 2;
 tput sgr0
-git clone https://github.com/ParsePlatform/parse-server-example.git $APP_NAME
+sudo git clone https://github.com/ParsePlatform/parse-server-example.git $APP_NAME
 cd $APP_NAME
 npm install -g parse-server mongodb-runner parse-dashboard pm2@latest --no-optional --no-shrinkwrap
 echo
