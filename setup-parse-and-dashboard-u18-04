@@ -11,7 +11,7 @@ read BACK_NAME
 tput setaf 2; echo 'Welcome to Parse Server and Dashboard on Ubuntu 18.04 install bash script';
 sleep 2;
 tput sgr0
-cd ~
+cd /root
 tput setaf 2; echo 'Installing Git Node.js and Nginx Server';
 sleep 2;
 tput sgr0
@@ -23,8 +23,8 @@ tput setaf 2; echo "Now installing all components....."
 sleep 2;
 tput sgr0
 cd /etc/nginx/sites-available/
-sudo cp ~/nginx-settings-backend.conf "./$BACK_NAME.$APP_NAME.$DOMAIN"
-sudo cp ~/nginx-settings-dashboard.conf "./$DASH_NAME.$APP_NAME.$DOMAIN"
+sudo cp /root/parse-server-dashboard-ubuntu-18.04/nginx-settings-backend.conf "./$BACK_NAME.$APP_NAME.$DOMAIN"
+sudo cp /root/parse-server-dashboard-ubuntu-18.04/nginx-settings-dashboard.conf "./$DASH_NAME.$APP_NAME.$DOMAIN"
 sudo sed -i -e "s/app.example.com/$BACK_NAME.$APP_NAME.$DOMAIN/" "$BACK_NAME.$APP_NAME.$DOMAIN"
 sudo sed -i -e "s/dash.example.com/$DASH_NAME.$APP_NAME.$DOMAIN/" "$DASH_NAME.$APP_NAME.$DOMAIN"
 
@@ -50,7 +50,7 @@ echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/
 apt-get update
 apt-get install -y mongodb-org
 service mongod start
-cd ~
+cd /root
 tput setaf 2; echo 'Installing Parse Server Dashboard and PM2';
 sleep 2;
 tput sgr0
@@ -69,19 +69,19 @@ tput setaf 2; echo 'Adding APP_ID and MASTER_KEY';
 sleep 2;
 tput sgr0
 APP_ID=`pwgen -s 24 1`
-sudo sed -i "s/appId: process.env.APP_ID || .*/appId: process.env.APP_ID || '$APP_ID',/" ~/$APP_NAME/index.js
-sudo sed -i -e "s/APP_ID/$APP_ID/" "~/$APP_NAME/parse-dashboard-config.json"
-sudo sed -i -e "s/APP_NAME/$APP_NAME/" "~/$APP_NAME/parse-dashboard-config.json"
-sudo sed -i -e "s/DOMAIN/$APP_NAME.$DOMAIN/" "~/$APP_NAME/parse-dashboard-config.json"
-sudo sed -i -e "s/APP_NAME/$APP_NAME/" "~/$APP_NAME/dashboard-running.json"
-sudo sed -i -e "s/localhost:1337/$BACK_NAME.$APP_NAME..$DOMAIN/" "~/$APP_NAME/index.js"
-sudo sed -i -e "s/http/https/" "~/$APP_NAME/index.js"
+sudo sed -i "s/appId: process.env.APP_ID || .*/appId: process.env.APP_ID || '$APP_ID',/" /root/$APP_NAME/index.js
+sudo sed -i -e "s/APP_ID/$APP_ID/" "/root/$APP_NAME/parse-dashboard-config.json"
+sudo sed -i -e "s/APP_NAME/$APP_NAME/" "/root/$APP_NAME/parse-dashboard-config.json"
+sudo sed -i -e "s/DOMAIN/$APP_NAME.$DOMAIN/" "/root/$APP_NAME/parse-dashboard-config.json"
+sudo sed -i -e "s/APP_NAME/$APP_NAME/" "/root/$APP_NAME/dashboard-running.json"
+sudo sed -i -e "s/localhost:1337/$BACK_NAME.$APP_NAME.$DOMAIN/" "/root/$APP_NAME/index.js"
+sudo sed -i -e "s/http/https/" "/root/$APP_NAME/index.js"
 MASTER_KEY=`pwgen -s 26 1`
-sudo sed -i "s/masterKey: process.env.MASTER_KEY || .*/masterKey: process.env.MASTER_KEY || '$MASTER_KEY',/" ~/$APP_NAME/index.js
-sudo sed -i -e "s/MASTER_KEY/$MASTER_KEY/" "~/$APP_NAME/parse-dashboard-config.json"
+sudo sed -i "s/masterKey: process.env.MASTER_KEY || .*/masterKey: process.env.MASTER_KEY || '$MASTER_KEY',/" /root/$APP_NAME/index.js
+sudo sed -i -e "s/MASTER_KEY/$MASTER_KEY/" "/root/$APP_NAME/parse-dashboard-config.json"
 
 PASS=`pwgen -s 9 1`
-sudo sed -i -e "s/PASS/$PASS/" "~/$APP_NAME/parse-dashboard-config.json"
+sudo sed -i -e "s/PASS/$PASS/" "/root/$APP_NAME/parse-dashboard-config.json"
 tput setaf 2; echo 'Enable pm2';
 echo
 tput sgr0
