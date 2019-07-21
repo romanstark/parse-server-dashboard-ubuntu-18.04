@@ -39,6 +39,7 @@ sudo ln -s /etc/nginx/sites-available/"$DASH_NAME.$APP_NAME.$DOMAIN" /etc/nginx/
 tput setaf 2; echo "Setting up SSL"
 sleep 2;
 tput sgr0
+tput setaf 2; echo 'Downloading ssl_dhparam from mozilla.org';
 sudo curl https://ssl-config.mozilla.org/ffdhe2048.txt > /etc/ssl/ffdhe4096.pem
 cd /etc/nginx/
 sudo mv nginx.conf nginx.conf.backup
@@ -65,7 +66,7 @@ sudo git clone https://github.com/ParsePlatform/parse-server-example.git $APP_NA
 cd $APP_NAME
 npm install -g parse-server mongodb-runner parse-dashboard pm2@latest --no-optional --no-shrinkwrap
 echo
-tput setaf 2; echo 'Downloading Parse Server Dashboard Configuration Files';
+tput setaf 2; echo 'Preparing Dashboard Configuration Files';
 sleep 2;
 
 sudo cp /root/parse-server-dashboard-ubuntu-18.04/dashboard-running.json ./
@@ -96,7 +97,7 @@ pm2 start index.js && pm2 startup
 pm2 start dashboard-running.json && pm2 startup
 echo
 echo
-tput setaf 2; echo "Here is your Credentials"
+tput setaf 2; echo "Here are your Credentials"
 echo "--------------------------------"
 echo "APP_ID:   $APP_ID"
 echo
@@ -115,6 +116,7 @@ tput setaf 2;  echo "Installation & configuration succesfully finished. Happy co
 echo
 sleep 2;
 tput setaf 2; echo "Need app or backend development in germany? See https://www.vanedler.de"
+sleep 2;
 echo "E-mail: mail@romanstark.de"
 echo "Bye!"
 tput sgr0
