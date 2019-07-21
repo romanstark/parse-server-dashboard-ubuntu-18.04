@@ -8,7 +8,7 @@ On a fresh Ubuntu 18.04 installation please install git before you start.
 You net to setup A-Records for you domain. E.g. *.example.com or the named subdomains you are going to choose during setup
 
 ```
-cd ~ && git clone https://github.com/romanstark/parse-server-dashboard-ubuntu-18.04.git
+cd /root && git clone https://github.com/romanstark/parse-server-dashboard-ubuntu-18.04.git
 sudo bash setup-parse-and-dashboard-u18-04
 ```
 
