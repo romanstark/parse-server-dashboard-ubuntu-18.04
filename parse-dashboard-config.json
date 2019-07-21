@@ -2,7 +2,7 @@
   "apps": [
     {
       "serverURL": "https://DOMAIN/parse",
-      "graphQLServerURL": "https://DOMAIN/graphql",
+      // "graphQLServerURL": "https://DOMAIN/graphql",
       "appId": "APP_ID",
       "masterKey": "MASTER_KEY",
       "appName": "APP_NAME",
