@@ -1,5 +1,6 @@
 # Automated installation fo Parse-Server and Parse-Dashboard on Ubuntu-18.04 LTS
 Shell scripts and config files to install Parse Server and Dashboard on Ubuntu 18.04 LTS.
+
 ![](dashboard.png)
 
 # Howto
@@ -36,10 +37,9 @@ you can login to Parse Dashboard. (username is admin)
 ## Author
 Roman Stark 
 
-This scripts are based on https://github.com/bajpangosh/Install-Parse-Server-on-Ubuntu/tree/master/ubuntu-18.04 from Bajpan Gosh – bajpan@kloudboy.com. Thank you for the good work.
-
-
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/romanstark)
+
+This scripts are based on https://github.com/bajpangosh/Install-Parse-Server-on-Ubuntu/tree/master/ubuntu-18.04 from Bajpan Gosh – bajpan@kloudboy.com. Thank you for the good work.
 
 ## Need App Development?
 Please see https://www.vanedler.de
