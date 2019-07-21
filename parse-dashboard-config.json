@@ -2,11 +2,12 @@
   "apps": [
     {
       "serverURL": "https://DOMAIN/parse",
+      "graphQLServerURL": "https://DOMAIN/graphql",
       "appId": "APP_ID",
       "masterKey": "MASTER_KEY",
       "appName": "APP_NAME",
       "iconName": "MyAppIcon.png",
-      "supportedPushLocales": ["de", en", "fr"]
+      "supportedPushLocales": ["de", "en", "fr"]
     }
   ],
 
