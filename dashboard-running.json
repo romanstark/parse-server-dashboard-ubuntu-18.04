@@ -1,0 +1,10 @@
+{
+  "apps" : [{
+    "name"        : "parse-dashboard-wrapper",
+    "script"      : "parse-dashboard",
+    "watch"       : true,
+    "merge_logs"  : true,
+    "cwd"         : "/root/APP_NAME/",
+    "args"         : "--config /root/APP_NAME/parse-dashboard-config.json --allowInsecureHTTP=1"
+  }]
+}
