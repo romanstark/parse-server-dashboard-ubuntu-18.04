@@ -1,5 +1,6 @@
 # Automated installation fo Parse-Server and Parse-Dashboard on Ubuntu-18.04 LTS
-Shell scripts and config files to install Parse Server and Dashboard on Ubuntu 18.04 LTS. 
+Shell scripts and config files to install Parse Server and Dashboard on Ubuntu 18.04 LTS.
+![](dashboard.png)
 
 # Howto
 Clone this repository into your home folder and run the shell script:
@@ -11,8 +12,12 @@ cd /root && sudo git clone https://github.com/romanstark/parse-server-dashboard-
 cd parse-server-dashboard-ubuntu-18.04 && sudo bash setup-parse-and-dashboard-u18-04 && cd ..
 ```
 
+![](userinput.png)
+
 After successful Installation your Credentials shows (take a copy to notepad and save it.).
-you can login to Parse Dashboard. https://dash.yourdomain.com (username is admin)
+you can login to Parse Dashboard. (username is admin)
+
+![](success.png)
 
 ## Features
 
