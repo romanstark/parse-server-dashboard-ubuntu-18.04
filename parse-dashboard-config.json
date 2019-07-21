@@ -2,7 +2,6 @@
   "apps": [
     {
       "serverURL": "https://DOMAIN/parse",
-      // "graphQLServerURL": "https://DOMAIN/graphql",
       "appId": "APP_ID",
       "masterKey": "MASTER_KEY",
       "appName": "APP_NAME",
@@ -12,9 +11,9 @@
   ],
 
   "users": [
-      {
-           "user":"admin",
-           "pass":"PASS"
-      }
+    {
+      "user": "admin",
+      "pass": "PASS"
+    }
   ]
 }

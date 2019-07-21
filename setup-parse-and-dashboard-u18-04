@@ -44,7 +44,9 @@ cd /etc/nginx/
 sudo mv nginx.conf nginx.conf.backup
 sudo cp /root/parse-server-dashboard-ubuntu-18.04/nginx.conf ./
 sudo systemctl reload nginx
-sudo certbot --nginx --agree-tos -m "$EMAIL" -d "$BACK_NAME.$APP_NAME.$DOMAIN" -d "$DASH_NAME.$APP_NAME.$DOMAIN"
+sudo certbot --nginx --agree-tos -n -m "$EMAIL" -d "$BACK_NAME.$APP_NAME.$DOMAIN"
+sudo certbot --nginx --agree-tos -n -m "$EMAIL" -d "$DASH_NAME.$APP_NAME.$DOMAIN"
+
 sudo systemctl reload nginx
 
 tput setaf 2; echo 'Installing Mongo DB';
@@ -109,7 +111,7 @@ echo "--------------------------------"
 tput sgr0
 echo
 echo
-tput setaf 3;  echo "Installation & configuration succesfully finished. Happy coding."
+tput setaf 2;  echo "Installation & configuration succesfully finished. Happy coding."
 echo
 sleep 2;
 tput setaf 2; echo "Need app or backend development in germany? See https://www.vanedler.de"
