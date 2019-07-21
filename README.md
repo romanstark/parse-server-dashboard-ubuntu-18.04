@@ -16,17 +16,17 @@ you can login to Parse Dashboard. https://dash.yourdomain.com (username is admin
 
 ## Features
 
-> parse-server
+> parse-server@3.6.0
 
-> parse-dashboard
+> parse-dashboard@1.4.1
 
-> mongodb-runner
+> mongodb-runner@4.7.1
 
-> Nginx
+> Nginx 1.14.0
 
-> Node.js
+> Node.js v11.15.0
 
-> pm2
+> pm2@3.5.1
 
 ## Author
 Roman Stark 
