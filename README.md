@@ -26,11 +26,11 @@ you can login to Parse Dashboard. (username is admin)
 
 > Letsencrypt SSL
 
-> parse-server@3.6.0
+> parse-server@3.7.2
 
-> parse-dashboard@1.4.1
+> parse-dashboard@1.4.3
 
-> mongodb-runner@4.7.1
+> mongodb-runner@4.7.2
 
 > Nginx 1.14.0
 
